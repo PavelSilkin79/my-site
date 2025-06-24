@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .background-container {
+            background: url('{{ background.image.url }}') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 100vh;
+            padding: 60px 15px;
+            color: white;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        h1, h4 {
+            color: #4deaa7;
+        }
+    </style>
+</head>
+<body>
+<div class="background-container">
+    <div class="overlay">
+        <div class="container">
+            <h1 class="mb-4 text-center">Свяжитесь с нами</h1>
+
+            <div class="card shadow p-4 mb-4">
+                <h4 class="mb-3">Контактная информация</h4>
+                <p><strong>Адрес:</strong> {{ contact.address }}</p>
+                <p><strong>Телефон:</strong> {{ contact.phone }}</p>
+                <p><strong>Email:</strong> {{ contact.email }}</p>
+
+                {% if contact.map_url %}
+                <div class="ratio ratio-16x9 mt-3">
+                    <iframe src="{{ contact.map_url }}" allowfullscreen loading="lazy" style="border:0;"></iframe>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if company_card %}
+            <div class="card shadow p-4">
+                <h4 class="mb-3">Карточка предприятия</h4>
+                <p><strong>Полное наименование:</strong> {{ company_card.full_name }}</p>
+                <p><strong>Краткое наименование:</strong> {{ company_card.short_name }}</p>
+                <p><strong>ИНН:</strong> {{ company_card.inn }}</p>
+                <p><strong>ОГРН:</strong> {{ company_card.ogrn }}</p>
+                <p><strong>Адрес регистрации:</strong> {{ company_card.registration_address }}</p>
+                <p><strong>Регион деятельности:</strong> {{ company_card.working_region }}</p>
+                <p><strong>Основной вид деятельности:</strong> {{ company_card.activity }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
