@@ -1,4 +1,12 @@
-__pycache__/
+# Виртуальное окружение
+.env
+env/
 .venv/
+ENV/
+
+# Служебные папки
+__pycache__/
 .vscode/
-.env/
+
+# Медиафайлы
+media/
