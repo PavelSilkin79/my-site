@@ -16,7 +16,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('address', 'phone', 'email', 'map_url')
+    list_display = ('phone', 'email', 'map_url')
 
 @admin.register(GalleryImage)
 class GalleryImageAdmin(admin.ModelAdmin):

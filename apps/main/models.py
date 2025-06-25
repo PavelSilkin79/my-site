@@ -20,13 +20,12 @@ class Service(models.Model):
 
 
 class Contact(models.Model):
-    address = models.CharField(max_length=255)
     phone = models.CharField(max_length=50)
     email = models.EmailField()
     map_url = models.URLField(blank=True)
 
     def __str__(self):
-        return self.address
+        return self.phone
 
 
 class GalleryImage(models.Model):
@@ -41,12 +40,10 @@ class CompanyCard(models.Model):
     full_name = models.CharField("Полное наименование", max_length=255)
     short_name = models.CharField("Краткое наименование", max_length=255)
     registration_address = models.CharField("Адрес регистрации", max_length=255)
-    actual_address = models.CharField("Адрес регистрации", max_length=255)
-    phone = models.CharField("Телефон", max_length=50)
-    email = models.EmailField("Email", blank=True)
+    actual_address = models.CharField("Фактический адрес", max_length=255)
     inn = models.CharField("ИНН", max_length=12)
     ogrn = models.CharField("ОГРН", max_length=15)
-    activity = models.TextField("Основной вид деятельности")
+    activity = models.TextField("ОКВЭД")
 
 
     def __str__(self):

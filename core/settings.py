@@ -74,7 +74,13 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
+
+# Каталог, в который collectstatic будет складывать собранные файлы
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Локальные директории для хранения исходной статики (Bootstrap, твои CSS и т.п.)
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
