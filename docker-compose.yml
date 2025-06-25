@@ -11,6 +11,7 @@ services:
       - .env
     depends_on:
       - db
+    restart: always
 
   db:
     image: postgres:16
@@ -20,6 +21,7 @@ services:
       POSTGRES_DB: sitedb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
+    restart: always
 
 volumes:
   postgres_data:
