@@ -8,6 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", False)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # чтобы Django видел, что запрос по HTTPS
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", subcast=str)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 INSTALLED_APPS = [
@@ -63,7 +65,6 @@ DATABASES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", subcast=str)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
