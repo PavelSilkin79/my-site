@@ -63,7 +63,7 @@ DATABASES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", subcast=str)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
