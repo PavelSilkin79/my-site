@@ -11,6 +11,11 @@ DEBUG = env.bool("DEBUG", False)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # чтобы Django видел, что запрос по HTTPS
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", subcast=str)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+print(ALLOWED_HOSTS)
+print(CSRF_TRUSTED_ORIGINS)
+
+
+
 
 INSTALLED_APPS = [
     "apps.main",
